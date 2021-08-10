@@ -14,6 +14,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+
 
 function Copyright() {
   return (
@@ -29,8 +32,14 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  icon: {
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
     marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -63,18 +72,29 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function App() {
+  // Applying styles to this sheet alone
   const classes = useStyles();
+
   return (
+
+
+    
     <React.Fragment>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          {/* <CameraIcon className={classes.icon} /> */}
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            News
           </Typography>
+          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+
+
+
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -136,6 +156,9 @@ export default function App() {
           </Grid>
         </Container>
       </main>
+
+
+
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
